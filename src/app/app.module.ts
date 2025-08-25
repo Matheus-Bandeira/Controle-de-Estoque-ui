@@ -7,6 +7,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { CategoriaFormComponent } from './pages/categoria/categoria-form/categoria-form.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CategoriaComponent } from './pages/categoria/categoria.component';
     AppComponent,
     AboutComponent,
     HomeComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    CategoriaFormComponent
   ],
   imports: [
     BrowserModule,
