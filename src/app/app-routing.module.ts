@@ -9,8 +9,9 @@ import { CategoriaFormComponent } from './pages/categoria/categoria-form/categor
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  {path: 'categoria', component: CategoriaComponent},
-  {path: 'categoria/criar', component: CategoriaFormComponent},
+  { path: 'categoria', component: CategoriaComponent },
+  { path: 'categoria/criar', component: CategoriaFormComponent },
+  { path: 'categoria/atualizar/:id', component: CategoriaFormComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
