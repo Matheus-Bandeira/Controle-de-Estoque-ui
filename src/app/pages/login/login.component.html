@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="#"><b>Control</b>+</a>
+    </div>
+
+    <div class="card shadow">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Faça login para iniciar sua sessão</p>
+
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <!-- E-mail -->
+          <div class="input-group mb-3">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div
+            *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+            class="text-danger small"
+          >
+            Email é obrigatório
+          </div>
+
+          <!-- Senha -->
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Senha"
+              formControlName="senha"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div
+            *ngIf="form.get('senha')?.invalid && form.get('senha')?.touched"
+            class="text-danger small"
+          >
+            Senha é obrigatória
+          </div>
+
+          <!-- Opções -->
+          <div class="row">
+            <div class="col-8">
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="remember"
+                  formControlName="remember"
+                />
+                <label class="form-check-label" for="remember">Lembrar-me</label>
+              </div>
+            </div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid">
+                Entrar
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <p class="mb-1 mt-3">
+          <a href="#">Esqueci minha senha</a>
+        </p>
+        <p class="mb-0">
+          <a href="#" class="text-center">Registrar um novo usuário</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
