@@ -8,6 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { CategoriaFormComponent } from './pages/categoria/categoria-form/categoria-form.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { CategoriaFormComponent } from './pages/categoria/categoria-form/categor
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

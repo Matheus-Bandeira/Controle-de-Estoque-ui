@@ -1,0 +1,7 @@
+{
+  "categorias": [
+    { "id": 1, "nome": "Bebidas" },
+    { "id": 2, "nome": "Alimentos" },
+    { "id": 3, "nome": "Limpeza" }
+  ]
+}
