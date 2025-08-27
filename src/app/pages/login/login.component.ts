@@ -39,7 +39,8 @@ export class LoginComponent {
       this.authService.login(email, senha).subscribe({
         next: (res) => {
           console.log('Resposta da API:', res); // 👈 Aqui você verá o token no console
-          localStorage.setItem('token', res.token);
+              localStorage.setItem('token', res.token);
+              this.router.navigate(['/home']);
         },
         error: (err) => {
           console.error('Erro no login:', err);
