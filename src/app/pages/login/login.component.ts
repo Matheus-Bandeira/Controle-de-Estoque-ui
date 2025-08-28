@@ -20,26 +20,14 @@ export class LoginComponent {
     });
   }
 
-  // login() {
-  //   if (this.form.valid) {
-  //     const { email, senha } = this.form.value;
-
-  //     if (email === 'admin@email.com' && senha === '123') {
-  //       localStorage.setItem('token', 'fake-jwt-token');
-  //       this.router.navigate(['/home']);
-  //     } else {
-  //       alert('Usuário ou senha inválidos!');
-  //     }
-  //   }
-  // }
 
   login() {
     if (this.form.valid) {
       const { email, senha } = this.form.value;
       this.authService.login(email, senha).subscribe({
         next: (res) => {
-          console.log('Resposta da API:', res); // 👈 Aqui você verá o token no console
           localStorage.setItem('token', res.token);
+          this.router.navigate(['/home']);
         },
         error: (err) => {
           console.error('Erro no login:', err);
