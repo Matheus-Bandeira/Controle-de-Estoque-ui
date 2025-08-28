@@ -8,9 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CategoriaComponent } from './pages/categoria/categoria.component';
-import { CategoriaFormComponent } from './pages/categoria/categoria-form/categoria-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +16,8 @@ import { CategoriaFormComponent } from './pages/categoria/categoria-form/categor
     AboutComponent,
     HomeComponent,
     LoginComponent,
+    MainLayoutComponent,
+    RegisterComponent
     MainLayoutComponent,
     CategoriaComponent,
     CategoriaFormComponent

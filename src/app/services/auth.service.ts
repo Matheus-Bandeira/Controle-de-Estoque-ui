@@ -1,20 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { API } from '../core/api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/login';
-
   constructor(private http: HttpClient) { }
 
   login(email: string, senha: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { email, senha }).pipe(
+    return this.http.post<any>(API.AUTH.LOGIN, { email, senha }).pipe(
       tap(response => {
-        // salva o token no localStorage
         localStorage.setItem('token', response.token);
       })
     );

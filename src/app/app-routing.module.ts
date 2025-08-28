@@ -5,19 +5,18 @@ import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { authGuard } from './core/auth.guard';
+import { RegisterComponent } from './pages/register/register.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { CategoriaFormComponent } from './pages/categoria/categoria-form/categoria-form.component';
-
-// const routes: Routes = [
-//   { path: 'home', component: HomeComponent },
-//   { path: 'about', component: AboutComponent },
-//   { path: '', component: LoginComponent },
-// ];
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '',
