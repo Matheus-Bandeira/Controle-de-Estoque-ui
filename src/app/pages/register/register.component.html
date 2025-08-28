@@ -1,0 +1,45 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
+    <h4 class="text-center mb-4">Registro de Usuário</h4>
+
+    <div *ngIf="sucesso" class="alert alert-success" role="alert">
+        Usuário cadastrado com sucesso! Redirecionando para login...
+    </div>
+
+    <form [formGroup]="formUser" (ngSubmit)="registrarUsuario()">
+      <!-- Nome -->
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" formControlName="nome">
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="exemplo@dominio.com" formControlName="email">
+      </div>
+
+      <!-- Senha -->
+      <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" formControlName="senha">
+      </div>
+
+      <!-- Perfil -->
+      <div class="mb-3">
+        <label for="perfil" class="form-label">Perfil</label>
+        <select class="form-select" id="perfil" formControlName="perfil">
+          <option value="" disabled selected>Selecione o perfil</option>
+          <option value="ADMIN">ADMIN</option>
+          <option value="OPERADOR">OPERADOR</option>
+          <option value="VISUALIZADOR">VISUALIZADOR</option>
+        </select>
+      </div>
+
+      <!-- Botão -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>
