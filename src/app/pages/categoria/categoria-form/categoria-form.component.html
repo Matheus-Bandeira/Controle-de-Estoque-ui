@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h2 *ngIf="!editando">Criar Categoria</h2>
+  <h2 *ngIf="editando">Editar Categoria</h2>
+
+  <form (ngSubmit)="salvar()">
+    <div class="mb-3">
+      <label for="nomeCategoria" class="form-label">Nome da Categoria</label>
+      <input type="text" class="form-control" id="nomeCategoria"
+             [(ngModel)]="categoria.nome" name="nome" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      {{ editando ? 'Atualizar' : 'Salvar' }}
+    </button>
+    <a routerLink="/categoria" class="btn btn-secondary ms-2">Cancelar</a>
+  </form>
+</div>

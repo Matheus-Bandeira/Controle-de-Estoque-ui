@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <h3>Listar Categoria</h3>
+
+  <!-- Tabela de categorias -->
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nome da Categoria</th>
+        <th class="text-end">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let categoria of categorias">
+        <td>{{ categoria.id }}</td>
+        <td>{{ categoria.nome }}</td>
+        <td class="text-end">
+          <button class="btn btn-primary btn-sm me-2" (click)="atualizar(categoria)">
+            <i class="fa fa-edit"></i> Editar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="excluir(categoria)">
+            <i class="fa fa-trash"></i> Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Botão para criar categoria -->
+  <div class="d-flex justify-content-end mt-3">
+    <a routerLink="/categoria/criar" class="btn btn-success">
+      <i class="fa fa-plus"></i> Criar Categoria
+    </a>
+  </div>
+</div>
