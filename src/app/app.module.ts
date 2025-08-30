@@ -9,9 +9,9 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
-import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { CategoriaFormComponent } from './pages/categoria/categoria-form/categoria-form.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { CategoriaListComponent } from './pages/categoria/categoria-list/categoria-list.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { RegisterComponent } from './pages/register/register.component';
     MainLayoutComponent,
     RegisterComponent,
     MainLayoutComponent,
-    CategoriaComponent,
-    CategoriaFormComponent
+    CategoriaFormComponent,
+    CategoriaListComponent
   ],
   imports: [
     BrowserModule,
