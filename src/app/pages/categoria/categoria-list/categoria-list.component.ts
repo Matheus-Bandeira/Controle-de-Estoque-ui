@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/models/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
-  selector: 'app-categoria',
-  templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.css']
+  selector: 'app-categoria-list',
+  templateUrl: './categoria-list.component.html',
+  styleUrls: ['./categoria-list.component.css']
 })
-export class CategoriaComponent implements OnInit {
-  
+export class CategoriaListComponent {
   categorias: Categoria[] = [];
 
   constructor(
@@ -29,7 +28,7 @@ export class CategoriaComponent implements OnInit {
 
   excluir(categoria: Categoria) {
     if (confirm('Tem certeza que deseja excluir esta categoria?')) {
-      this.categoriaService.deletar(categoria.id!).subscribe({
+      this.categoriaService.deletar(categoria).subscribe({
         next: () => this.ngOnInit(),
         error: (erro) => console.error('Erro ao excluir categoria:', erro)
       });

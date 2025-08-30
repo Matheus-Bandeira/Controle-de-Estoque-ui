@@ -11,7 +11,7 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 export class CategoriaFormComponent implements OnInit {
 
   categoria: Categoria = { nome: '' };
-  editando = false; // flag para saber se é edição ou criação
+  editando = false;
 
   constructor(
     private categoriaService: CategoriaService,
@@ -33,8 +33,6 @@ export class CategoriaFormComponent implements OnInit {
 
   salvar() {
     if (this.editando) {
-      console.log('Categoria enviada para salvar:', this.categoria);
-
       this.categoriaService.atualizar(this.categoria).subscribe({
         next: () => this.router.navigate(['/categoria']),
         error: (erro) => console.error('Erro ao atualizar categoria:', erro)
