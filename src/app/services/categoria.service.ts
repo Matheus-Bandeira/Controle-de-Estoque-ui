@@ -9,8 +9,6 @@ import { API } from '../core/api';
 })
 export class CategoriaService {
 
-  private apiURL = 'http://localhost:8080/categorias';
-
   constructor(private http: HttpClient) { }
 
   private getHeaders(): HttpHeaders {
@@ -32,20 +30,19 @@ export class CategoriaService {
     return this.http.post<Categoria>(API.CATEGORIAS.CADASTRAR, categoria, { headers: this.getHeaders() });
   }
 
-  buscarPorId(id: string | number): Observable<Categoria> {
+  buscarPorId(id: number): Observable<Categoria> {
     return this.http.get<Categoria>(API.CATEGORIAS.BUSCAR_POR_ID(Number(id)), { headers: this.getHeaders() });
   }
 
   atualizar(categoria: Categoria): Observable<Categoria> {
-    //return this.http.put<Categoria>(`${this.apiURL}/${categoria.id}`, categoria, { headers: this.getHeaders() });
     return this.http.put<Categoria>(
-      API.CATEGORIAS.ATUALIZAR(Number(categoria.id)), // garante que seja number
+      API.CATEGORIAS.ATUALIZAR(Number(categoria.id)), 
       categoria,
       { headers: this.getHeaders() }
     );
   }
 
-  deletar(id: string | number): Observable<void> {
-    return this.http.delete<void>(API.CATEGORIAS.DELETAR(id), { headers: this.getHeaders() });
+  deletar(categoria: Categoria): Observable<void> {
+    return this.http.delete<void>(API.CATEGORIAS.DELETAR(Number(categoria.id)), { headers: this.getHeaders() });
   }
 }
