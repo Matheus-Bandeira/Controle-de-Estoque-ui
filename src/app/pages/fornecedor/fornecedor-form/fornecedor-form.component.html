@@ -1,0 +1,64 @@
+<h2 *ngIf="!editando">Adicionar Fornecedor</h2>
+<h2 *ngIf="editando">Editar Fornecedor</h2>
+
+<form [formGroup]="fornecedorForm" (ngSubmit)="salvar()">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome:</label>
+    <input
+      id="nome"
+      type="text"
+      class="form-control"
+      formControlName="nome"
+      placeholder="Digite o nome do fornecedor"
+    />
+    <div *ngIf="fornecedorForm.get('nome')?.invalid && fornecedorForm.get('nome')?.touched" class="text-danger">
+      Nome é obrigatório.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="cnpj" class="form-label">CNPJ:</label>
+    <input
+      id="cnpj"
+      type="text"
+      class="form-control"
+      formControlName="cnpj"
+      placeholder="Digite o CNPJ"
+    />
+    <div *ngIf="fornecedorForm.get('cnpj')?.invalid && fornecedorForm.get('cnpj')?.touched" class="text-danger">
+      CNPJ é obrigatório.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="telefone" class="form-label">Telefone:</label>
+    <input
+      id="telefone"
+      type="text"
+      class="form-control"
+      formControlName="telefone"
+      placeholder="Digite o telefone"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
+    <input
+      id="email"
+      type="email"
+      class="form-control"
+      formControlName="email"
+      placeholder="Digite o email"
+    />
+    <div *ngIf="fornecedorForm.get('email')?.invalid && fornecedorForm.get('email')?.touched" class="text-danger">
+      Email inválido.
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end mt-3">
+    <button type="submit" class="btn btn-primary btn-sm me-2" [disabled]="fornecedorForm.invalid">
+      {{ editando ? 'Atualizar' : 'Salvar' }}
+    </button>
+    <button type="button" class="btn btn-danger btn-sm" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
