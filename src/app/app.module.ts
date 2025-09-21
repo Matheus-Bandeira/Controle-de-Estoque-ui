@@ -13,6 +13,8 @@ import { CategoriaFormComponent } from './pages/categoria/categoria-form/categor
 import { RegisterComponent } from './pages/register/register.component';
 import { CategoriaListComponent } from './pages/categoria/categoria-list/categoria-list.component';
 import { AuthInterceptor } from './core/auth.interceptor';
+import { FornecedorFormComponent } from './pages/fornecedor/fornecedor-form/fornecedor-form.component';
+import { FornecedorListComponent } from './pages/fornecedor/fornecedor-list/fornecedor-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AuthInterceptor } from './core/auth.interceptor';
     RegisterComponent,
     MainLayoutComponent,
     CategoriaFormComponent,
-    CategoriaListComponent
+    CategoriaListComponent,
+    FornecedorFormComponent,
+    FornecedorListComponent
   ],
   imports: [
     BrowserModule,
