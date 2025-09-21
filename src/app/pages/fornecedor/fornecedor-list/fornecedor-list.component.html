@@ -1,0 +1,60 @@
+<h2>Lista de Fornecedores</h2>
+
+<!-- Filtros -->
+<form [formGroup]="filtroForm" class="mb-3">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label for="nome" class="form-label">Nome:</label>
+      <input
+        id="nome"
+        type="text"
+        class="form-control"
+        formControlName="nome"
+        placeholder="Filtrar por nome"
+      />
+    </div>
+
+    <div class="col-md-6">
+      <label for="cnpj" class="form-label">CNPJ:</label>
+      <input
+        id="cnpj"
+        type="text"
+        class="form-control"
+        formControlName="cnpj"
+        placeholder="Filtrar por CNPJ"
+      />
+    </div>
+  </div>
+</form>
+
+<!-- Tabela -->
+<table class="table table-bordered table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>CNPJ</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of fornecedoresFiltrados">
+      <td>{{ f.id }}</td>
+      <td>{{ f.nome }}</td>
+      <td>{{ f.cnpj }}</td>
+      <td>{{ f.telefone }}</td>
+      <td>{{ f.email }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm me-2" (click)="editar(f)">Editar</button>
+        <button class="btn btn-danger btn-sm" (click)="excluir(f)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-end mt-3">
+  <button class="btn btn-success" (click)="adicionar()">Adicionar Fornecedor</button>
+</div>
+
