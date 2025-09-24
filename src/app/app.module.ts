@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -12,7 +12,9 @@ import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { CategoriaFormComponent } from './pages/categoria/categoria-form/categoria-form.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CategoriaListComponent } from './pages/categoria/categoria-list/categoria-list.component';
-import { ProdutoComponent } from './pages/produto/produto.component';
+import { AuthInterceptor } from './core/auth.interceptor';
+import { FornecedorFormComponent } from './pages/fornecedor/fornecedor-form/fornecedor-form.component';
+import { FornecedorListComponent } from './pages/fornecedor/fornecedor-list/fornecedor-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ProdutoComponent } from './pages/produto/produto.component';
     MainLayoutComponent,
     CategoriaFormComponent,
     CategoriaListComponent,
-    ProdutoComponent
+    FornecedorFormComponent,
+    FornecedorListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,13 @@ import { ProdutoComponent } from './pages/produto/produto.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

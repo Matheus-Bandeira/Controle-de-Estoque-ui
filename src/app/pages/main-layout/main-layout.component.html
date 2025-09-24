@@ -46,7 +46,7 @@
           </li>
 
           <li class="nav-item">
-            <a routerLink="/home" class="nav-link">
+            <a routerLink="/fornecedor" class="nav-link">
               <i class="nav-icon fa-solid fa-truck-field"></i>
               <p>Fornecedor</p>
             </a>
@@ -59,11 +59,41 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a routerLink="/home" class="nav-link">
               <i class="nav-icon fa-solid fa-file-pdf"></i>
               <p>Relatório</p>
             </a>
+          </li> -->
+          
+          <!-- Menu Relatórios -->
+           <!-- Menu Relatórios -->
+          <li class="nav-item" [class.menu-open]="relatoriosAberto">
+            <a href="#" class="nav-link" (click)="toggleRelatorios($event)">
+              <i class="nav-icon fa-solid fa-file-pdf"></i>
+              <p>
+                Relatórios
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" [style.display]="relatoriosAberto ? 'block' : 'none'">
+              <li class="nav-item">
+                <a class="nav-link" href="#" (click)="gerarRelatorioEstoqueBaixo($event)">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                   <i class="nav-icon fa-regular fa-flag"></i>
+                  <p>Estoque Mínimo</p>
+                </a>
+              </li>
+            </ul>
+
+            <!-- <ul class="nav nav-treeview" [style.display]="relatoriosAberto ? 'block' : 'none'">
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Entrada e Saída</p>
+                </a>
+              </li>
+            </ul> -->
           </li>
 
           <li class="nav-item">
