@@ -12,6 +12,7 @@ import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { CategoriaFormComponent } from './pages/categoria/categoria-form/categoria-form.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CategoriaListComponent } from './pages/categoria/categoria-list/categoria-list.component';
+import { ProdutoComponent } from './pages/produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CategoriaListComponent } from './pages/categoria/categoria-list/categor
     RegisterComponent,
     MainLayoutComponent,
     CategoriaFormComponent,
-    CategoriaListComponent
+    CategoriaListComponent,
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,
