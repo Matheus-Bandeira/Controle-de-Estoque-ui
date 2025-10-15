@@ -15,6 +15,8 @@ import { CategoriaListComponent } from './pages/categoria/categoria-list/categor
 import { AuthInterceptor } from './core/auth.interceptor';
 import { FornecedorFormComponent } from './pages/fornecedor/fornecedor-form/fornecedor-form.component';
 import { FornecedorListComponent } from './pages/fornecedor/fornecedor-list/fornecedor-list.component';
+import { ProdutoFormComponent } from './pages/produto/produto-form/produto-form.component';
+import { ProdutoListComponent } from './pages/produto/produto-list/produto-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { FornecedorListComponent } from './pages/fornecedor/fornecedor-list/forn
     CategoriaFormComponent,
     CategoriaListComponent,
     FornecedorFormComponent,
-    FornecedorListComponent
+    FornecedorListComponent,
+    ProdutoFormComponent,
+    ProdutoListComponent
   ],
   imports: [
     BrowserModule,

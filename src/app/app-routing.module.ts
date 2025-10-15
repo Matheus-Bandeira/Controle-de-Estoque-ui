@@ -10,6 +10,7 @@ import { CategoriaFormComponent } from './pages/categoria/categoria-form/categor
 import { CategoriaListComponent } from './pages/categoria/categoria-list/categoria-list.component';
 import { FornecedorListComponent } from './pages/fornecedor/fornecedor-list/fornecedor-list.component';
 import { FornecedorFormComponent } from './pages/fornecedor/fornecedor-form/fornecedor-form.component';
+import { ProdutoListComponent } from './pages/produto/produto-list/produto-list.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
       {path: 'fornecedor', component: FornecedorListComponent},
       {path: 'fornecedor/cadastrar', component: FornecedorFormComponent},
       {path: 'fornecedor/atualizar/:id', component: FornecedorFormComponent},
+      {path: 'produto', component: ProdutoListComponent}
       // aqui você coloca todas as telas que usam o menu
     ]
   }
