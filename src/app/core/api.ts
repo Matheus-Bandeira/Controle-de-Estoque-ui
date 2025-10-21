@@ -19,5 +19,13 @@ export const API = {
     DELETAR: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`,
     ATUALIZAR: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`,
     BUSCAR_POR_ID: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`
+  },
+
+  PRODUTOS: {
+    LISTAR: `${environment.apiBaseUrl}/produtos`,
+    CADASTRAR: `${environment.apiBaseUrl}/produtos`,
+    DELETAR: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`,
+    ATUALIZAR: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`,
+    BUSCAR_POR_ID: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`
   }
 };

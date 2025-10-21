@@ -1,1 +1,80 @@
-<p>produto-list works!</p>
+<h2>Lista de Produtos</h2>
+
+<!-- Filtros -->
+<form [formGroup]="filtroForm" class="mb-3">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <label for="nome" class="form-label">Nome:</label>
+      <input
+        id="nome"
+        type="text"
+        class="form-control"
+        formControlName="nome"
+        placeholder="Filtrar por nome"
+      />
+    </div>
+
+    <div class="col-md-4">
+      <label for="codigo" class="form-label">Código:</label>
+      <input
+        id="codigo"
+        type="text"
+        class="form-control"
+        formControlName="codigo"
+        placeholder="Filtrar por código"
+      />
+    </div>
+
+    <div class="col-md-4">
+      <label for="categoria" class="form-label">Categoria:</label>
+      <select id="categoria" class="form-select" formControlName="categoria">
+        <option value="">Todas</option>
+        <option *ngFor="let c of categorias" [value]="c.id">{{ c.nome }}</option>
+      </select>
+    </div>
+  </div>
+</form>
+
+<!-- Tabela -->
+<table class="table table-bordered table-striped table-hover mt-4">
+  <thead class="table-dark text-center">
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Código</th>
+      <th>Descrição</th>
+      <th>Unidade</th>
+      <th>Estoque Mínimo</th>
+      <th>Qtd. Atual</th>
+      <th>Preço (R$)</th>
+      <th>Categoria</th>
+      <th>Fornecedor</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of produtosFiltrados">
+      <td>{{ p.id }}</td>
+      <td>{{ p.nome }}</td>
+      <td>{{ p.codigo }}</td>
+      <td>{{ p.descricao }}</td>
+      <td>{{ p.unidadeMedida }}</td>
+      <td>{{ p.estoqueMinimo }}</td>
+      <td>{{ p.quantidadeAtual }}</td>
+      <td>{{ p.preco | currency:'BRL':'symbol':'1.2-2' }}</td>
+      <td>{{ p.categoriaId?.nome }}</td>
+      <td>{{ p.fornecedorId?.nome }}</td>
+      <td class="text-center">
+        <button class="btn btn-primary btn-sm me-2" (click)="editar(p)">Editar</button>
+        <button class="btn btn-danger btn-sm" (click)="excluir(p)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Botão Adicionar -->
+<div class="d-flex justify-content-end mt-3">
+  <button class="btn btn-success" (click)="adicionar()">Adicionar Produto</button>
+</div>
+
+
