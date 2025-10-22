@@ -62,8 +62,9 @@
       <td>{{ p.estoqueMinimo }}</td>
       <td>{{ p.quantidadeAtual }}</td>
       <td>{{ p.preco | currency:'BRL':'symbol':'1.2-2' }}</td>
-      <td>{{ p.categoriaId?.nome }}</td>
-      <td>{{ p.fornecedorId?.nome }}</td>
+      <td>{{ p.categoriaNome }}</td>
+      <td>{{ p.fornecedorNome }}</td>
+
       <td class="text-center">
         <button class="btn btn-primary btn-sm me-2" (click)="editar(p)">Editar</button>
         <button class="btn btn-danger btn-sm" (click)="excluir(p)">Excluir</button>

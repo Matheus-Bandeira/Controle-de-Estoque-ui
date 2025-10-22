@@ -10,6 +10,8 @@ export interface Produto {
   estoqueMinimo?: number;
   quantidadeAtual?: number;
   preco?: number;
-  categoriaId?: Categoria;
-  fornecedorId?: Fornecedor;
+  categoriaId?: number;
+  categoriaNome?: string;
+   fornecedorId?: number;
+  fornecedorNome?: string;
 }

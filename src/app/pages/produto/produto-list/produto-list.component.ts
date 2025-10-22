@@ -69,7 +69,7 @@ export class ProdutoListComponent implements OnInit {
         ?.toLowerCase()
         .includes(val.codigo.toLowerCase());
       const categoriaMatch =
-        !val.categoria || p.categoriaId?.id === +val.categoria;
+        !val.categoria || p.categoriaId === +val.categoria
 
       return nomeMatch && codigoMatch && categoriaMatch;
     });
