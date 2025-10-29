@@ -1,1 +1,161 @@
-<p>produto-form works!</p>
+<h2 *ngIf="!editando">Adicionar Produto</h2>
+<h2 *ngIf="editando">Editar Produto</h2>
+
+<form [formGroup]="produtoForm" (ngSubmit)="salvar()">
+  <!-- NOME -->
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome:</label>
+    <input
+      id="nome"
+      type="text"
+      class="form-control"
+      formControlName="nome"
+      placeholder="Digite o nome do produto"
+    />
+    <div *ngIf="produtoForm.get('nome')?.invalid && produtoForm.get('nome')?.touched" class="text-danger">
+      Nome é obrigatório.
+    </div>
+  </div>
+
+  <!-- CÓDIGO -->
+  <div class="mb-3">
+    <label for="codigo" class="form-label">Código:</label>
+    <input
+      id="codigo"
+      type="text"
+      class="form-control"
+      formControlName="codigo"
+      placeholder="Digite o código do produto"
+    />
+    <div *ngIf="produtoForm.get('codigo')?.invalid && produtoForm.get('codigo')?.touched" class="text-danger">
+      Código é obrigatório.
+    </div>
+  </div>
+
+  <!-- DESCRIÇÃO -->
+  <div class="mb-3">
+    <label for="descricao" class="form-label">Descrição:</label>
+    <textarea
+      id="descricao"
+      class="form-control"
+      rows="2"
+      formControlName="descricao"
+      placeholder="Digite uma breve descrição (opcional)"
+    ></textarea>
+  </div>
+
+  <div class="row">
+    <!-- UNIDADE DE MEDIDA -->
+    <div class="col-md-4 mb-3">
+      <label for="unidadeMedida" class="form-label">Unidade de Medida:</label>
+      <input
+        id="unidadeMedida"
+        type="text"
+        class="form-control"
+        formControlName="unidadeMedida"
+        placeholder="Ex: UN, KG, CX..."
+      />
+      <div *ngIf="produtoForm.get('unidadeMedida')?.invalid && produtoForm.get('unidadeMedida')?.touched" class="text-danger">
+        Unidade de medida é obrigatória.
+      </div>
+    </div>
+
+    <!-- ESTOQUE MÍNIMO -->
+    <div class="col-md-4 mb-3">
+      <label for="estoqueMinimo" class="form-label">Estoque Mínimo:</label>
+      <input
+        id="estoqueMinimo"
+        type="number"
+        class="form-control"
+        formControlName="estoqueMinimo"
+        min="0"
+      />
+      <div *ngIf="produtoForm.get('estoqueMinimo')?.invalid && produtoForm.get('estoqueMinimo')?.touched" class="text-danger">
+        Estoque mínimo é obrigatório e não pode ser negativo.
+      </div>
+    </div>
+
+    <!-- QUANTIDADE ATUAL -->
+    <div class="col-md-4 mb-3">
+      <label for="quantidadeAtual" class="form-label">Quantidade Atual:</label>
+      <input
+        id="quantidadeAtual"
+        type="number"
+        class="form-control"
+        formControlName="quantidadeAtual"
+        min="0"
+      />
+      <div *ngIf="produtoForm.get('quantidadeAtual')?.invalid && produtoForm.get('quantidadeAtual')?.touched" class="text-danger">
+        Quantidade atual é obrigatória e não pode ser negativa.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- PREÇO -->
+    <div class="col-md-4 mb-3">
+      <label for="preco" class="form-label">Preço (R$):</label>
+      <input
+        id="preco"
+        type="number"
+        step="0.01"
+        min="0.01"
+        class="form-control"
+        formControlName="preco"
+        placeholder="Digite o preço do produto"
+      />
+      <div *ngIf="produtoForm.get('preco')?.invalid && produtoForm.get('preco')?.touched" class="text-danger">
+        O preço deve ser maior que zero.
+      </div>
+    </div>
+
+    <!-- CATEGORIA -->
+    <div class="col-md-4 mb-3">
+      <label for="categoriaId" class="form-label">Categoria:</label>
+      <select
+        id="categoriaId"
+        class="form-select"
+        formControlName="categoriaId"
+      >
+        <option value="">Selecione...</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">
+          {{ categoria.nome }}
+        </option>
+      </select>
+      <div *ngIf="produtoForm.get('categoriaId')?.invalid && produtoForm.get('categoriaId')?.touched" class="text-danger">
+        Categoria é obrigatória.
+      </div>
+    </div>
+
+    <!-- FORNECEDOR -->
+    <div class="col-md-4 mb-3">
+      <label for="fornecedorId" class="form-label">Fornecedor:</label>
+      <select
+        id="fornecedorId"
+        class="form-select"
+        formControlName="fornecedorId"
+      >
+        <option value="">Selecione...</option>
+        <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">
+          {{ fornecedor.nome }}
+        </option>
+      </select>
+      <div *ngIf="produtoForm.get('fornecedorId')?.invalid && produtoForm.get('fornecedorId')?.touched" class="text-danger">
+        Fornecedor é obrigatório.
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÕES -->
+  <div class="d-flex justify-content-end mt-3">
+    <button
+      type="submit"
+      class="btn btn-primary btn-sm me-2"
+      [disabled]="produtoForm.invalid"
+    >
+      {{ editando ? 'Atualizar' : 'Salvar' }}
+    </button>
+    <button type="button" class="btn btn-danger btn-sm" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
+
