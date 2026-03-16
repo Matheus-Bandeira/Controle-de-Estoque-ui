@@ -86,7 +86,7 @@ export class ProdutoFormComponent implements OnInit {
       this.produtoService.atualizar(this.idProduto, produto).subscribe({
         next: () => {
           alert('Produto atualizado com sucesso!');
-          this.router.navigate(['/produtos']);
+          this.router.navigate(['/produto']);
         },
         error: (erro) => console.error('Erro ao atualizar produto', erro)
       });
@@ -94,7 +94,7 @@ export class ProdutoFormComponent implements OnInit {
       this.produtoService.cadastrar(produto).subscribe({
         next: () => {
           alert('Produto cadastrado com sucesso!');
-          this.router.navigate(['/produtos']);
+          this.router.navigate(['/produto']);
         },
         error: (erro) => console.error('Erro ao cadastrar produto', erro)
       });

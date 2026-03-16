@@ -37,6 +37,7 @@ const routes: Routes = [
       { path: 'fornecedor/atualizar/:id', component: FornecedorFormComponent},
       { path: 'produto', component: ProdutoListComponent},
       { path: 'produto/cadastrar', component: ProdutoFormComponent},
+      { path: 'produto/atualizar/:id', component: ProdutoFormComponent }
       // aqui você coloca todas as telas que usam o menu
     ]
   }

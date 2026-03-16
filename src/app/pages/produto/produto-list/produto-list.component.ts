@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { Produto } from 'src/app/models/Produto';
 import { CategoriaService } from 'src/app/services/categoria.service';
+import { FornecedorService } from 'src/app/services/fornecedor.service';
 import { ProdutoService } from 'src/app/services/produto.service';
 
 
@@ -14,11 +16,13 @@ export class ProdutoListComponent implements OnInit {
   produtos: Produto[] = [];
   produtosFiltrados: Produto[] = [];
   categorias: any[] = [];
+  fornecedores: any[] = [];
   filtroForm!: FormGroup;
 
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
+    private fornecedorService: FornecedorService,
     private fb: FormBuilder,
     private router: Router
   ) {}
@@ -30,8 +34,12 @@ export class ProdutoListComponent implements OnInit {
       categoria: ['']
     });
 
-    this.carregarProdutos();
-    this.carregarCategorias();
+    // Carregar categorias e fornecedores primeiro
+    forkJoin([this.categoriaService.listar(), this.fornecedorService.listar()]).subscribe(([cats, fors]) => {
+      this.categorias = cats;
+      this.fornecedores = fors;
+      this.carregarProdutos();
+    });
 
     // atualiza lista ao digitar/selecionar filtros
     this.filtroForm.valueChanges.subscribe((val) => {
@@ -42,21 +50,16 @@ export class ProdutoListComponent implements OnInit {
   
   carregarProdutos(): void {
     this.produtoService.listar().subscribe((data) => {
-    // Se categoria vier só como id, faz o join manual
-    this.produtos = data.map(produto => {
-      if (typeof produto.categoriaId === 'number') {
-        const categoriaObj = this.categorias.find(c => c.id === produto.categoriaId);
-        return { ...produto, categoria: categoriaObj };
-      }
-      return produto;
-    });
-    this.produtosFiltrados = this.produtos;
-  });
-  }
-
-  carregarCategorias(): void {
-    this.categoriaService.listar().subscribe((data) => {
-      this.categorias = data;
+      this.produtos = data.map(produto => {
+        const categoria = this.categorias.find(c => c.id === produto.categoriaId);
+        const fornecedor = this.fornecedores.find(f => f.id === produto.fornecedorId);
+        return {
+          ...produto,
+          categoriaNome: categoria ? categoria.nome : '',
+          fornecedorNome: fornecedor ? fornecedor.nome : ''
+        };
+      });
+      this.produtosFiltrados = this.produtos;
     });
   }
 
