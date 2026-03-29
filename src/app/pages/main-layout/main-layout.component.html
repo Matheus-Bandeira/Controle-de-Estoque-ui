@@ -53,7 +53,7 @@
           </li>
 
           <li class="nav-item">
-            <a routerLink="/home" class="nav-link">
+            <a routerLink="/movimento/estoque" class="nav-link">
               <i class="nav-icon fas fa-exchange-alt"></i>
               <p>Movimento Estoque</p>
             </a>
@@ -65,7 +65,7 @@
               <p>Relatório</p>
             </a>
           </li> -->
-          
+
           <!-- Menu Relatórios -->
            <!-- Menu Relatórios -->
           <li class="nav-item" [class.menu-open]="relatoriosAberto">
@@ -79,10 +79,14 @@
             <ul class="nav nav-treeview" [style.display]="relatoriosAberto ? 'block' : 'none'">
               <li class="nav-item">
                 <a class="nav-link" href="#" (click)="gerarRelatorioEstoqueBaixo($event)">
-                  <!-- <i class="far fa-circle nav-icon"></i> -->
                    <i class="nav-icon fa-regular fa-flag"></i>
                   <p>Estoque Mínimo</p>
                 </a>
+
+                <a class="nav-link" routerLink="/relatorio-movimento-estoque" >
+                  <i class="nav-icon fa-regular fas fa-tachometer" aria-hidden="true"></i>
+                 <p>Relatorio Mov. Estoque</p>
+               </a>
               </li>
             </ul>
 
