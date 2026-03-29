@@ -12,6 +12,8 @@ import { FornecedorListComponent } from './pages/fornecedor/fornecedor-list/forn
 import { FornecedorFormComponent } from './pages/fornecedor/fornecedor-form/fornecedor-form.component';
 import { ProdutoListComponent } from './pages/produto/produto-list/produto-list.component';
 import { ProdutoFormComponent } from './pages/produto/produto-form/produto-form.component';
+import { MovimentacaoEstoqueComponent } from './pages/movimentacao-estoque/movimentacao-estoque.component';
+import { RelatorioMovimentacaoEstoqueComponent } from './pages/relatorio-movimentacao-estoque/relatorio-movimentacao-estoque.component';
 
 const routes: Routes = [
   {
@@ -37,7 +39,9 @@ const routes: Routes = [
       { path: 'fornecedor/atualizar/:id', component: FornecedorFormComponent},
       { path: 'produto', component: ProdutoListComponent},
       { path: 'produto/cadastrar', component: ProdutoFormComponent},
-      { path: 'produto/atualizar/:id', component: ProdutoFormComponent }
+      { path: 'produto/atualizar/:id', component: ProdutoFormComponent },
+      { path: 'movimento/estoque', component: MovimentacaoEstoqueComponent },
+      { path: 'relatorio-movimento-estoque', component: RelatorioMovimentacaoEstoqueComponent }
       // aqui você coloca todas as telas que usam o menu
     ]
   }
