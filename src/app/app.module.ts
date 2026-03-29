@@ -17,6 +17,8 @@ import { FornecedorFormComponent } from './pages/fornecedor/fornecedor-form/forn
 import { FornecedorListComponent } from './pages/fornecedor/fornecedor-list/fornecedor-list.component';
 import { ProdutoFormComponent } from './pages/produto/produto-form/produto-form.component';
 import { ProdutoListComponent } from './pages/produto/produto-list/produto-list.component';
+import { MovimentacaoEstoqueComponent } from './pages/movimentacao-estoque/movimentacao-estoque.component';
+import { RelatorioMovimentacaoEstoqueComponent } from './pages/relatorio-movimentacao-estoque/relatorio-movimentacao-estoque.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ProdutoListComponent } from './pages/produto/produto-list/produto-list.
     FornecedorFormComponent,
     FornecedorListComponent,
     ProdutoFormComponent,
-    ProdutoListComponent
+    ProdutoListComponent,
+    MovimentacaoEstoqueComponent,
+    RelatorioMovimentacaoEstoqueComponent
   ],
   imports: [
     BrowserModule,
