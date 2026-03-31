@@ -1,4 +1,4 @@
-<h2>Lista de Categorias</h2>
+<h2 class="mb-4">Lista de Categorias</h2>
 
 <!-- Filtros -->
 <form [formGroup]="filtroForm" class="mb-3">
@@ -18,20 +18,22 @@
 
 <!-- Tabela -->
 <table class="table table-bordered table-striped table-hover mt-4">
-  <thead class="table-dark text-center">
+  <thead class="table-dark">
     <tr>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Ações</th>
+      <th class="id-col">ID</th>
+      <th class="nome">Nome</th>
+      <th class="text-end acoes">Ações</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let categoria of categoriasFiltradas">
-      <td>{{ categoria.id }}</td>
-      <td>{{ categoria.nome }}</td>
-      <td class="text-center">
-        <button class="btn btn-primary btn-sm me-2" (click)="editar(categoria)">Editar</button>
-        <button class="btn btn-danger btn-sm" (click)="excluir(categoria)">Excluir</button>
+      <td class="id-col">{{ categoria.id }}</td>
+      <td class="nome text-truncate" title="{{ categoria.nome }}">{{ categoria.nome }}</td>
+      <td class="text-end acoes">
+        <div class="d-inline-flex gap-1 justify-content-end">
+          <button class="btn btn-primary btn-sm" (click)="editar(categoria)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="excluir(categoria)">Excluir</button>
+        </div>
       </td>
     </tr>
   </tbody>
