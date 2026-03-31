@@ -1,0 +1,29 @@
+th.acoes, td.acoes {
+  width: 160px;
+  white-space: nowrap;
+}
+
+th.id-col, td.id-col {
+  width: 10%;
+  max-width: 80px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+th.nome, td.nome {
+  width: 40%;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th.nome {
+  text-align: left;
+}
+
+td.nome.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

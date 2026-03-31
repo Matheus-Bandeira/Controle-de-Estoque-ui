@@ -1,17 +1,25 @@
-<div class="container mt-4">
-  <h2 *ngIf="!editando">Criar Categoria</h2>
-  <h2 *ngIf="editando">Editar Categoria</h2>
+<h2 *ngIf="!editando">Adicionar Categoria</h2>
+<h2 *ngIf="editando">Editar Categoria</h2>
 
-  <form (ngSubmit)="salvar()">
-    <div class="mb-3">
-      <label for="nomeCategoria" class="form-label">Nome da Categoria</label>
-      <input type="text" class="form-control" id="nomeCategoria"
-             [(ngModel)]="categoria.nome" name="nome" required>
+<form [formGroup]="categoriaForm" (ngSubmit)="salvar()">
+  <!-- NOME -->
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome:</label>
+    <input
+      id="nome"
+      type="text"
+      class="form-control"
+      formControlName="nome"
+      placeholder="Digite o nome da categoria"
+    />
+    <div *ngIf="categoriaForm.get('nome')?.invalid && categoriaForm.get('nome')?.touched" class="text-danger">
+      Nome é obrigatório.
     </div>
+  </div>
 
-    <button type="submit" class="btn btn-primary">
-      {{ editando ? 'Atualizar' : 'Salvar' }}
-    </button>
-    <a routerLink="/categoria" class="btn btn-secondary ms-2">Cancelar</a>
-  </form>
-</div>
+  <!-- BOTÕES -->
+  <div class="d-flex justify-content-end mt-3">
+    <button type="submit" class="btn btn-success me-2">{{ editando ? 'Atualizar' : 'Salvar' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
