@@ -14,18 +14,26 @@ export const API = {
     },
 
     FORNECEDORES: {
-    LISTAR: `${environment.apiBaseUrl}/fornecedores`,
-    CADASTRAR: `${environment.apiBaseUrl}/fornecedores`,
-    DELETAR: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`,
-    ATUALIZAR: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`,
-    BUSCAR_POR_ID: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`
-  },
+        LISTAR: `${environment.apiBaseUrl}/fornecedores`,
+        CADASTRAR: `${environment.apiBaseUrl}/fornecedores`,
+        DELETAR: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`,
+        ATUALIZAR: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`,
+        BUSCAR_POR_ID: (id: number) => `${environment.apiBaseUrl}/fornecedores/${id}`
+    },
 
   PRODUTOS: {
-    LISTAR: `${environment.apiBaseUrl}/produtos`,
-    CADASTRAR: `${environment.apiBaseUrl}/produtos`,
-    DELETAR: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`,
-    ATUALIZAR: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`,
-    BUSCAR_POR_ID: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`
+        LISTAR: `${environment.apiBaseUrl}/produtos`,
+        CADASTRAR: `${environment.apiBaseUrl}/produtos`,
+        DELETAR: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`,
+        ATUALIZAR: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`,
+        BUSCAR_POR_ID: (id: number) => `${environment.apiBaseUrl}/produtos/${id}`
+  },
+
+  MOVIMENTO_ESTOQUE: {
+        MOVIMENTACOES: `${environment.apiBaseUrl}/movimentacoes`
+  },
+
+  RELATORIOS: {
+        ESTOQUE_MINIMO: `${environment.apiBaseUrl}/api/relatorios/estoque-baixo/pdf`
   }
 };
