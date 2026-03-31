@@ -1,36 +1,45 @@
-<div class="container mt-4">
-  <h3>Listar Categoria List</h3>
+<h2 class="mb-4">Lista de Categorias</h2>
 
-  <!-- Tabela de categorias -->
-  <table class="table table-striped mt-3">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Nome da Categoria</th>
-        <th class="text-end">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let categoria of categorias">
-        <td>{{ categoria.id }}</td>
-        <td>{{ categoria.nome }}</td>
-        <td class="text-end">
-          <button class="btn btn-primary btn-sm me-2" (click)="atualizar(categoria)">
-            <i class="fa fa-edit"></i> Editar
-          </button>
-          <button class="btn btn-danger btn-sm" (click)="excluir(categoria)">
-            <i class="fa fa-trash"></i> Excluir
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <!-- Botão para criar categoria -->
-  <div class="d-flex justify-content-end mt-3">
-    <a routerLink="/categoria/criar" class="btn btn-success">
-      <i class="fa fa-plus"></i> Criar Categoria
-    </a>
+<!-- Filtros -->
+<form [formGroup]="filtroForm" class="mb-3">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <label for="nome" class="form-label">Nome:</label>
+      <input
+        id="nome"
+        type="text"
+        class="form-control"
+        formControlName="nome"
+        placeholder="Filtrar por nome"
+      />
+    </div>
   </div>
+</form>
+
+<!-- Tabela -->
+<table class="table table-bordered table-striped table-hover mt-4">
+  <thead class="table-dark">
+    <tr>
+      <th class="id-col">ID</th>
+      <th class="nome">Nome</th>
+      <th class="text-end acoes">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let categoria of categoriasFiltradas">
+      <td class="id-col">{{ categoria.id }}</td>
+      <td class="nome text-truncate" title="{{ categoria.nome }}">{{ categoria.nome }}</td>
+      <td class="text-end acoes">
+        <div class="d-inline-flex gap-1 justify-content-end">
+          <button class="btn btn-primary btn-sm" (click)="editar(categoria)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="excluir(categoria)">Excluir</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Botão Adicionar -->
+<div class="d-flex justify-content-end mt-3">
+  <button class="btn btn-success" (click)="adicionar()">Adicionar Categoria</button>
 </div>
