@@ -7,7 +7,7 @@ import { API } from '../core/api';
 })
 export class RelatorioService {
 
-  private api = "http://localhost:8080/api/relatorios/movimento-estoque";
+  private api = API.RELATORIOS.MOVIMENTO_ESTOQUE;
 
   constructor(private http: HttpClient) { }
 
