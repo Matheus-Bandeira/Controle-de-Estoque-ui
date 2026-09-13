@@ -34,6 +34,7 @@ export const API = {
   },
 
   RELATORIOS: {
+        MOVIMENTO_ESTOQUE: `${environment.apiBaseUrl}/api/relatorios/movimento-estoque`,
         ESTOQUE_MINIMO: `${environment.apiBaseUrl}/api/relatorios/estoque-baixo/pdf`
   }
 };
